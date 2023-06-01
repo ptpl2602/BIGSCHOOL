@@ -12,12 +12,12 @@ namespace BIGSCHOOL.ViewModels
         public override bool IsValid(object value)
         {
             DateTime dateTime;
-            var isValib = DateTime.TryParseExact(Convert.ToString(value),
+            var isValid = DateTime.TryParseExact(Convert.ToString(value),
                 "HH:mm",
                 CultureInfo.CurrentCulture,
                 DateTimeStyles.None,
                 out dateTime);
-            return isValib;
+            return isValid;
         }
     }
 }

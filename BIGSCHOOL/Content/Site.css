@@ -28,3 +28,25 @@ textarea {
     background-color: #777;
     border-color: #fff
 }
+
+.navbar-expand-lg .navbar-brand {
+    color: #fff;
+
+}
+
+.course > li {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.course > li .date {
+    background-color: #d41d50;
+    width: 60px;
+    border-radius: 8px;
+}
+
+.course > li .details {
+    position: absolute;
+    top: 0;
+    left: 70px;
+}

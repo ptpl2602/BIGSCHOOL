@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" />
     <link href="~/Content/bootstrap.min.css" />
     <link href="~/Scripts/bootstrap.js" />
     @Styles.Render("~/Content/css")
@@ -11,7 +12,7 @@
 
 </head>
 <body style="padding-top: 0">
-    <div class="navbar navbar-expand-lg">
+    <div class="navbar navbar-expand-lg" style="background-color: #d41d50;">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
@@ -19,13 +20,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand  text-white" })
             </div>
             <div class="navbar collapse navbar-collapse">
                 <ul class="navbar-nav">
-                    <li class="nav-item nav-link">@Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link" })</li>
-                    <li class="nav-item nav-link">@Html.ActionLink("About", "About", "Home", new { @class = "nav-link" })</li>
-                    <li class="nav-item nav-link">@Html.ActionLink("Add Course", "Create", "Courses", new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link text-white" })</li>
+                    <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { @class = "nav-link text-white" })</li>
+                    <li class="nav-item">@Html.ActionLink("Add Course", "Create", "Courses", new { @class = "nav-link text-white" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
