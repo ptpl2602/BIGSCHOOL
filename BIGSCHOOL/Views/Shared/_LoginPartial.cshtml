@@ -5,7 +5,7 @@
     {
     @Html.AntiForgeryToken()
 
-<ul class="nav nav-pills navbar-right">
+<ul class="navbar navbar-nav navbar-right">
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
             Hello @User.Identity.GetUserName()
@@ -14,16 +14,16 @@
             <li><a class="dropdown-item" href="#">My Course</a></li>
             <li><a class="dropdown-item" href="#">My Lecture</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>
+            @*<li><a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>*@
         </ul>
     </li>
-    @*<li><a href="javascript:document.getElementById('logoutForm').submit()" class="ps-4 nav-link text-white">Log off</a></li>*@
+    <li><a href="javascript:document.getElementById('logoutForm').submit()" class="ps-4 nav-link text-white">Log off</a></li>
 </ul>
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="navbar navbar-nav navbar-right">
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link"})</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
     </ul>
