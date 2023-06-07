@@ -13,7 +13,7 @@ namespace BIGSCHOOL.Controllers
     [Authorize]
     public class AttendancesController : ApiController
     {
-        private ApplicationDbContext _dbContext;
+        private readonly ApplicationDbContext _dbContext;
         public AttendancesController()
         {
             _dbContext = new ApplicationDbContext();

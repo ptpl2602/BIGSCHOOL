@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BIGSCHOOL.Models.Course>
+@{
+    ViewBag.Title = "Mine";
+}
+
+<h2>Mine</h2>
+<ul class="list-group">
+    @foreach (var i in Model)
+    {
+        <li class="list-group-item course position-relative mb-4 border-0">
+            <div class="text-center text-white rounded" style="background-color: #d41d50; width: 60px;">
+                <div class="month">@i.DateTime.ToString("MM")</div>
+                <div class="day">@i.DateTime.ToString("dd")</div>
+            </div>
+            <div class="details position-absolute" style="top:10px; left: 100px;">
+                <span class="lecturer">@i.Lecturer.Name</span>
+                <span class="category">@i.Category.Name</span>
+            </div>
+            <div class="action position-absolute" style="top: 34px; left: 100px;">
+                <a href="@Url.Action("Edit", "Courses", new {id = i.Id})" class="text-decoration-none text-success">Edit</a> |
+                <a href="@Url.Action("Cancel", "Courses", new {id = i.Id})" class="text-decoration-none text-success js-cancel-course" data-course-id="@i.Id">Delete</a>
+            </div>
+        </li>
+    }
+</ul>
+
+@section scripts 
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-cancel-course").click(function (e) {
+                e.preventDefault();
+                const link = $(this);
+                bootbox.confirm("Are you sure to cancel?", function () {
+                    $.ajax({
+                        url: "/api/courses/" + link.attr("data-course-id"),
+                        method: "DELETE"
+                    })
+                        .done(function () {
+                            link.parents("li").fadeOut(function () {
+                                $(this).remove();
+                            });
+                        })
+                        .fail(function () {
+                            alert("Something failed!");
+                        });
+                });
+            });
+        });
+    </script>
+}

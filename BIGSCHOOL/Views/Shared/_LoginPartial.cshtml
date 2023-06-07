@@ -11,20 +11,20 @@
             Hello @User.Identity.GetUserName()
         </a>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">My Course</a></li>
+            <li><a class="dropdown-item" href="@Url.Action("Mine", "Courses")">Mine I'm going</a></li>
+            <li><a class="dropdown-item" href="@Url.Action("Attending", "Courses")">Course I'm going</a></li>
             <li><a class="dropdown-item" href="#">My Lecture</a></li>
             <li><hr class="dropdown-divider"></li>
-            @*<li><a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>*@
+            <li><a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>
         </ul>
     </li>
-    <li><a href="javascript:document.getElementById('logoutForm').submit()" class="ps-4 nav-link text-white">Log off</a></li>
 </ul>
     }
 }
 else
 {
     <ul class="navbar navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link"})</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link text-white"})</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link text-white" })</li>
     </ul>
 }

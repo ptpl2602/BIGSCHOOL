@@ -1,41 +1,42 @@
 ﻿@*@model IEnumerable<BIGSCHOOL.Models.Course>*@
 @model BIGSCHOOL.ViewModels.CourseViewModels
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Attending";
 }
 
 <div class="row pt-3">
     <ul class="list-group">
         @foreach (var i in Model.UpcommingCourses)
-            {
-                <li class="list-group-item course position-relative mb-4 border-0">
-                    <div class="text-center text-white rounded" style="background-color: #d41d50; width: 60px;">
-                        <div class="month">
-                            @i.DateTime.ToString("MM")
-                        </div>
-                        <div class="day">
-                            @i.DateTime.ToString("dd")
-                        </div>
+        {
+            <li class="list-group-item course position-relative mb-4 border-0">
+                <div class="text-center text-white rounded" style="background-color: #d41d50; width: 60px;">
+                    <div class="month">
+                        @i.DateTime.ToString("MM")
                     </div>
-                    <div class="details position-absolute" style="top:20px; left: 100px;">
-                        <span class="lecturer">
-                            @i.Lecturer.Name
-                            @if(Model.ShowAction)
-                            {
-                                <button class="btn btn-secondary btn-sm js-toggle-follow ms-2" data-user-id="@i.LecturerId">Follow</button>
+                    <div class="day">
+                        @i.DateTime.ToString("dd")
+                    </div>
+                </div>
+                <div class="details position-absolute" style="top:4px; left: 100px;">
+                    <span class="lecturer">
+                        @i.Lecturer.Name
+                        @if (Model.ShowAction)
+                        {
+                            <button class="btn btn-secondary btn-sm js-toggle-follow ms-2" data-user-id="@i.LecturerId">Follow</button>
 
-                            }
-                        </span>
-                        <span class="category">
-                            @i.Category.Name
-                        </span>
-                            @if(Model.ShowAction)
-                            {
-                                <button data-course-id="@i.Id" class="btn btn-secondary btn-sm js-toggle-attendance ms-2">Going?</button>
-                            }
-                    </div>
-                </li>
-            }
+                        }
+                    </span>
+                    <br />
+                    <span class="category">
+                        @i.Category.Name
+                        @if (Model.ShowAction)
+                        {
+                            <button data-course-id="@i.Id" class="btn btn-secondary btn-sm js-toggle-attendance ms-1">Going?</button>
+                        }
+                    </span>
+                </div>
+            </li>
+        }
     </ul>
 </div>
 
