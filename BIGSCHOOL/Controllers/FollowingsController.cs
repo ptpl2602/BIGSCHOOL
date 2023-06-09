@@ -22,9 +22,12 @@ namespace BIGSCHOOL.Controllers
         public IHttpActionResult Follow(FollowingDto followingDto)
         {
             var userId = User.Identity.GetUserId();
-            if(_dbContext.Followings.Any(f => f.FollowerId == userId && f.FolloweeId == followingDto.FolloweeId))
+            var existingFollowing = _dbContext.Followings.FirstOrDefault(f => f.FollowerId == userId && f.FolloweeId == followingDto.FolloweeId);
+            if (existingFollowing != null)
             {
-                return BadRequest("Following already exist!");
+                _dbContext.Followings.Remove(existingFollowing);
+                _dbContext.SaveChanges();
+                return Ok();
             }
 
             var following = new Following

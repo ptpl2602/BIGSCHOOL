@@ -68,7 +68,18 @@
                 const button = $(e.target);
                 $.post("/api/followings", { followeeId: button.attr("data-user-id") })
                     .done(function () {
-                        button.text("Following");
+                        if (button.hasClass("btn-secondary")) {
+                            button
+                                .removeClass("btn-secondary")
+                                .addClass("btn-info")
+                                .text("Following");
+                        }
+                        else {
+                            button
+                                .removeClass("btn-info")
+                                .addClass("btn-secondary")
+                                .text("Follow");
+                        }
                     })
                     .fail(function () {
                         alert("Something failed!");
